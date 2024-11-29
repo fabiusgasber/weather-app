@@ -39,6 +39,7 @@ export const weatherservice = (() => {
           },
           conditions: today.conditions,
           precipprob: today.precipprob,
+          location: data.resolvedAddress,
           icon: today.icon,
         };
         return weatherInfo;
