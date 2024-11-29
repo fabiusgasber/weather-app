@@ -18,12 +18,10 @@ const fetchWeather = () => {
           const div = document.createElement("div");
           div.classList.add(info);
           for (const subinfo in data[info]) {
-            const subdiv = document.createElement("div");
             const subtext = document.createElement("p");
+            subtext.setAttribute("id", subinfo);
             subtext.append(document.createTextNode(data[info][subinfo]));
-            subdiv.append(subtext);
-            subdiv.classList.add(subinfo);
-            div.append(subdiv);
+            div.append(subtext);
           }
           weatherInfo.append(div);
         } else {
