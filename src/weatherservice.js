@@ -1,15 +1,11 @@
 export const weatherservice = (() => {
   async function getJSONData(location) {
-    try {
       const response = await fetch(
         `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?IconSet=icons1&key=W8SRDE35NC9EZSAB2UEM3ZD9H`,
       );
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
       return await response.json();
-    } catch (e) {
-      console.error(e.message);
-    }
   }
 
   function processWeather(json) {
@@ -21,6 +17,10 @@ export const weatherservice = (() => {
           throw new Error("Data error! Unexpected data format");
         const today = data.days[0];
         const weatherInfo = {
+            conditions: today.conditions,
+            precipprob: today.precipprob,
+            location: data.resolvedAddress,
+            icon: today.icon,  
           temperature: {
             temp: today.temp,
             tempmax: today.tempmax,
@@ -37,16 +37,9 @@ export const weatherservice = (() => {
             sunset: today.sunset,
             uv: today.uvindex,
           },
-          conditions: today.conditions,
-          precipprob: today.precipprob,
-          location: data.resolvedAddress,
-          icon: today.icon,
         };
         return weatherInfo;
       })
-      .catch((e) => {
-        console.error(e.message);
-      });
   }
 
   return { getJSONData, processWeather };
