@@ -13,25 +13,14 @@ const fetchWeather = () => {
   weather
     .then((data) => {
       weatherInfo.replaceChildren();
+      weatherInfo.classList.add("active")
       for (const info in data) {
-        if (typeof data[info] === "object" && data[info] !== null) {
-          const div = document.createElement("div");
-          div.classList.add(info);
-          for (const subinfo in data[info]) {
-            const subtext = document.createElement("p");
-            subtext.setAttribute("id", subinfo);
-            subtext.append(document.createTextNode(data[info][subinfo]));
-            div.append(subtext);
-          }
-          weatherInfo.append(div);
-        } else {
           const subdiv = document.createElement("div");
           const subtext = document.createElement("p");
           subtext.append(document.createTextNode(data[info]));
           subdiv.append(subtext);
           subdiv.classList.add(info);
           weatherInfo.append(subdiv);
-        }
       }
     })
     .catch((error) => {

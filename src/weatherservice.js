@@ -18,25 +18,16 @@ export const weatherservice = (() => {
         const today = data.days[0];
         const weatherInfo = {
             conditions: today.conditions,
-            precipprob: today.precipprob,
+            precipitation: today.precipprob,
             location: data.resolvedAddress,
             icon: today.icon,  
-          temperature: {
-            temp: today.temp,
-            tempmax: today.tempmax,
-            tempmin: today.tempmin,
-            feelslike: today.feelslike,
-          },
-          wind: {
-            winddir: today.winddir,
-            windgust: today.windgust,
+            temperature: today.temp,
+            direction: today.winddir,
+            gust: today.windgust,
             windspeed: today.windspeed,
-          },
-          sun: {
             sunrise: today.sunrise,
             sunset: today.sunset,
             uv: today.uvindex,
-          },
         };
         return weatherInfo;
       })
