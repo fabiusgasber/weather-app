@@ -22,8 +22,6 @@ export const weatherservice = (() => {
             location: data.resolvedAddress,
             icon: today.icon,  
             temperature: today.temp,
-            direction: today.winddir,
-            gust: today.windgust,
             windspeed: today.windspeed,
             sunrise: today.sunrise,
             sunset: today.sunset,
