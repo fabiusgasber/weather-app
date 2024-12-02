@@ -15,11 +15,18 @@ const fetchWeather = () => {
       weatherInfo.replaceChildren();
       weatherInfo.classList.add("active")
       for (const info in data) {
-          const subdiv = document.createElement("div");
-          const subtext = document.createElement("p");
-          subtext.append(document.createTextNode(data[info]));
-          subdiv.append(subtext);
-          subdiv.classList.add(info);
+        const subdiv = document.createElement("div");
+        subdiv.classList.add(info);
+          if(info === "icon") {
+            const icon = document.createElement("img");
+            icon.setAttribute("src", require(`./icons/weather-icon/${data[info]}.png`));
+            subdiv.append(icon);
+          }
+          else {
+            const subtext = document.createElement("p");
+            subtext.append(document.createTextNode(data[info]));  
+            subdiv.append(subtext);
+          }
           weatherInfo.append(subdiv);
       }
     })
