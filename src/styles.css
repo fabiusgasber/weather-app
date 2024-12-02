@@ -1,0 +1,187 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    font-family: monospace;
+    background-color: #1F2937;
+    line-height: 1.5;
+    padding: 1rem 2rem;
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(fonts/Poppins/Poppins-Thin.ttf);
+}
+
+h1, p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+body > h1 {
+    align-self: flex-start;
+    font-family: poppins, sans-serif;
+    color: #10B981;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+}
+
+#weather-info {
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: inherit;
+    font-family: inherit;
+    grid-area: info;
+    grid-auto-rows: 3rem;
+    width: 30rem;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    justify-items: center;
+    align-items: center;
+    border: 2px solid #10B981;
+    grid-template-areas: "location location location"
+                         "icon icon icon"
+                         "conditions conditions conditions"
+                         "temperature temperature temperature"
+                         "precipitation uv windspeed"
+                         "sunrise sunset .";
+    display: none;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+    color: white;
+    background-color: #2D3748;
+}
+
+form > input, button {
+    font-family: inherit;
+    appearance: none;
+    font-size: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+button {
+    width: 60%;
+    margin: 0 auto;
+    background-color: unset;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-color: #10B981;
+    color: white;
+}
+
+button:hover{
+    background-color: #098b60;
+}
+
+#weather-info.active {
+    display: grid;
+}
+
+#weather-info div {
+    display: flex;
+    gap: 1rem;
+}
+
+.conditions {
+    grid-area: conditions;
+}
+
+.precipitation {
+    grid-area: precipitation;
+    position: relative;
+}
+
+.precipitation::before, .windspeed::before, .sunrise::before, .sunset::before, .uv::before {
+    position: absolute;
+    content: "";
+    background-size: contain; /* Ensures the image fits the container */
+    background-repeat: no-repeat; /* Prevents tiling */
+    width: 20px; /* Adjust width */
+    height: 20px; /* Adjust height */
+    left: -30px;
+}
+
+.precipitation::before {
+    background-image: url(./icons/rain-prob.png);
+}
+
+.windspeed::before {
+    background-image: url(./icons/wind.png);
+}
+
+.location {
+    grid-area: location;
+    font-weight: bold;
+}
+
+.icon {
+    grid-area: icon;
+}
+
+.temperature {
+    grid-area: temperature;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #10B981;
+    position: relative;
+}
+
+.temperature::after {
+    position: absolute;
+    content: "";
+    right: -45px;
+}
+
+.windspeed {
+    grid-area: windspeed;
+    position: relative;
+}
+
+.windspeed::before {
+    background-image: url(./icons/wind.png);
+}
+
+.sunrise {
+    grid-area: sunrise;
+    grid-column: 1 / 3;
+}
+
+.sunset {
+    grid-area: sunset;
+    grid-column: 2 / 4;
+}
+
+.sunrise, .sunset {
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.sunrise::before {
+    background-image: url(./icons/sunrise.png);
+}
+
+.sunset::before {
+    background-image: url(./icons/sunset.png);
+}
+
+.uv {
+    grid-area: uv;
+    position: relative;
+}
+
+.uv::before {
+    background-image: url(./icons/uv.png);
+}
