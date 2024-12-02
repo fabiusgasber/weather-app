@@ -1,41 +1,24 @@
 import "./styles.css";
+import { userInterface } from "./ui";
 import { weatherprocessor } from "./weather-processor";
 import { weatherservice } from "./weatherservice";
 
-const textInput = document.querySelector("#search");
-const searchBtn = document.querySelector("#search-btn");
-const weatherInfo = document.querySelector("#weather-info");
+const init = () => {
+  userInterface.setEventListeners(fetchWeather);
+}
 
 const fetchWeather = () => {
-  const location = textInput.value;
+  const location = userInterface.getLocation();
   const weather = weatherprocessor.processWeather(
     weatherservice.getJSONData(location),
   );
   weather
     .then((data) => {
-      weatherInfo.replaceChildren();
-      weatherInfo.classList.add("active")
-      for (const info in data) {
-        const subdiv = document.createElement("div");
-        subdiv.classList.add(info);
-          if(info === "icon") {
-            const icon = document.createElement("img");
-            icon.setAttribute("src", require(`./icons/weather-icon/${data[info]}.png`));
-            subdiv.append(icon);
-          }
-          else {
-            const subtext = document.createElement("p");
-            subtext.append(document.createTextNode(data[info]));  
-            subdiv.append(subtext);
-          }
-          weatherInfo.append(subdiv);
-      }
+      userInterface.showWeatherInfos(data);
     })
-    .catch((error) => {
-      weatherInfo.replaceChildren();
-      weatherInfo.append(document.createTextNode("No city found"));
-      console.error(error.message);
+    .catch(() => {
+      userInterface.showError();
     });
 };
 
-searchBtn.addEventListener("click", fetchWeather);
+init();
