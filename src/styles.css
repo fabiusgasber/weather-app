@@ -55,27 +55,33 @@ body > h1 {
     background-color: #2D3748;
 }
 
-form > input, button {
+form {
+    display: flex;
+}
+
+form input, form button {
     font-family: inherit;
     appearance: none;
     font-size: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 5px;
-    border: 1px solid black;
-    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
 }
 
-form {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+form input {
+    border: 1px solid white;
+    flex-grow: 1;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+form button {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border: none;
 }
 
 button {
     width: 60%;
     margin: 0 auto;
-    background-color: unset;
     transition: background-color 0.3s ease, transform 0.2s ease;
     background-color: #10B981;
     color: white;
