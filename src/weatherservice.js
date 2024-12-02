@@ -17,7 +17,7 @@ export const weatherservice = (() => {
           throw new Error("Data error! Unexpected data format");
         const today = data.days[0];
         const weatherInfo = {
-            conditions: today.conditions,
+            conditions: today.description,
             precipitation: today.precipprob,
             location: data.resolvedAddress,
             icon: today.icon,  
