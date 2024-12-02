@@ -1,4 +1,5 @@
 import "./styles.css";
+import { weatherprocessor } from "./weather-processor";
 import { weatherservice } from "./weatherservice";
 
 const textInput = document.querySelector("#search");
@@ -7,7 +8,7 @@ const weatherInfo = document.querySelector("#weather-info");
 
 const fetchWeather = () => {
   const location = textInput.value;
-  const weather = weatherservice.processWeather(
+  const weather = weatherprocessor.processWeather(
     weatherservice.getJSONData(location),
   );
   weather
