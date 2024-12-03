@@ -9,8 +9,9 @@ const init = () => {
 
 const fetchWeather = () => {
   const location = userInterface.getLocation();
+  const unitSystem = userInterface.getUnit();
   const weather = weatherprocessor.processWeather(
-    weatherservice.getJSONData(location),
+    weatherservice.getJSONData(location, unitSystem),
   );
   weather
     .then((data) => {
