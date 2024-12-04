@@ -3,7 +3,8 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    font-family: monospace;
+    font-family: outfit;
+    font-weight: 300;
     background-color: #1F2937;
     line-height: 1.5;
     padding: 1rem 2rem;
@@ -13,6 +14,12 @@ body {
     font-family: poppins;
     src: url(fonts/Poppins/Poppins-Thin.ttf);
 }
+
+@font-face {
+    font-family: outfit;
+    src: url(fonts/Outfit/Outfit-VariableFont_wght.ttf);
+}
+
 
 h1, p {
     margin-block-start: 0;
@@ -134,7 +141,7 @@ button:hover{
 
 .location {
     grid-area: location;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .icon {
@@ -144,7 +151,7 @@ button:hover{
 .temperature {
     grid-area: temperature;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 500;
     color: #10B981;
     position: relative;
 }
@@ -175,8 +182,6 @@ button:hover{
 }
 
 .sunrise, .sunset {
-    font-weight: bold;
-    text-transform: uppercase;
     position: relative;
 }
 
