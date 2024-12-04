@@ -8,6 +8,7 @@ const init = () => {
 }
 
 const fetchWeather = () => {
+  userInterface.showLoader();
   const location = userInterface.getLocation();
   const unitSystem = userInterface.getUnit();
   const weather = weatherprocessor.processWeather(
@@ -19,6 +20,9 @@ const fetchWeather = () => {
     })
     .catch(() => {
       userInterface.showError();
+    })
+    .finally(() => {
+      userInterface.hideLoader()
     });
 };
 

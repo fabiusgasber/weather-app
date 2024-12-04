@@ -5,6 +5,7 @@ export const userInterface = (() => {
     const searchBtn = document.querySelector("#search-btn");
     const weatherInfo = document.querySelector("#weather-info");
     const unitToggle = document.querySelector(".unit-toggle");
+    const loader = document.querySelector(".spinner");
 
     const setEventListeners = (fn) => {
         searchBtn.addEventListener("click", fn);
@@ -52,6 +53,12 @@ export const userInterface = (() => {
         weatherInfo.append(document.createTextNode("No city found"));  
     }
 
-    return { setEventListeners, getLocation, showWeatherInfos, showError, getUnit };
+    const hideLoader = () => loader.classList.remove("active");
+    const showLoader = () => {
+      loader.classList.add("active");
+      weatherInfo.replaceChildren(); 
+    }
+
+    return { setEventListeners, getLocation, showWeatherInfos, showError, getUnit, showLoader, hideLoader };
 
 })()
