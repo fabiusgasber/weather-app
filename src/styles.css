@@ -1,6 +1,5 @@
 :root {
-    --main-color: #1081B9;
-    --accent-color: #10B981;
+    --accent-color: #51b34c;
     --background-color: #1F2937;
     --secondary-background-color: #2D3748;
     --box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
@@ -62,7 +61,7 @@ h1, p {
     padding: 1.5rem;
     justify-items: center;
     align-items: center;
-    border: 2px solid #10B981;
+    border: 2px solid var(--accent-color);
     grid-template-areas: "location location location"
                          "icon icon icon"
                          "conditions conditions conditions"
@@ -109,7 +108,7 @@ button {
 }
 
 button:hover{
-    background-color: #098b60;
+    background-color: #51b34cc3;
 }
 
 #weather-info.active {
