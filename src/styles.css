@@ -1,271 +1,284 @@
 :root {
-    --accent-color: #51b34c;
-    --background-color: #1F2937;
-    --secondary-background-color: #2D3748;
-    --box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-    --font-color: white;
+  --accent-color: #51b34c;
+  --background-color: #1f2937;
+  --secondary-background-color: #2d3748;
+  --box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  --font-color: white;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    font-family: outfit;
-    font-weight: 300;
-    background-color: var(--background-color);
-    line-height: 1.5;
-    padding: 1rem 2rem;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  font-family: outfit;
+  font-weight: 300;
+  background-color: var(--background-color);
+  line-height: 1.5;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
 }
 
 @font-face {
-    font-family: poppins;
-    src: url(fonts/Poppins/Poppins-Thin.ttf);
+  font-family: poppins;
+  src: url(fonts/Poppins/Poppins-Thin.ttf);
 }
 
 @font-face {
-    font-family: outfit;
-    src: url(fonts/Outfit/Outfit-VariableFont_wght.ttf);
+  font-family: outfit;
+  src: url(fonts/Outfit/Outfit-VariableFont_wght.ttf);
 }
 
-
-h1, p {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
+h1,
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    align-self: flex-start;
-    gap: 1rem;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .logo > h1 {
-    font-family: outfit, poppins, sans-serif;
-    color: rgba(255, 255, 255, 0.834);
-    position: relative;
-    flex-grow: 1;
-    font-size: clamp(2rem, 4vw + 1rem, 3rem);
+  font-family: outfit, poppins, sans-serif;
+  color: rgba(255, 255, 255, 0.834);
+  position: relative;
+  flex-grow: 1;
+  font-size: clamp(2rem, 4vw + 1rem, 3rem);
 }
 
 #weather-info {
-    grid-template-columns: 1fr 1fr 1fr;
-    font-size: inherit;
-    font-family: inherit;
-    grid-area: info;
-    grid-auto-rows: 3rem;
-    width: clamp(200px, 30rem, 50%);
-    gap: 0.5rem;
-    padding: 1.5rem;
-    justify-items: center;
-    align-items: center;
-    border: 2px solid var(--accent-color);
-    grid-template-areas: "location location location"
-                         "icon icon icon"
-                         "conditions conditions conditions"
-                         "temperature temperature temperature"
-                         "precipitation uv windspeed"
-                         "sunrise sunset .";
-    display: none;
-    box-shadow: var(--box-shadow);
-    border-radius: 0.5rem;
-    color: var(--font-color);
-    background-color: var(--secondary-background-color);
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: inherit;
+  font-family: inherit;
+  grid-area: info;
+  grid-auto-rows: 3rem;
+  width: clamp(200px, 30rem, 50%);
+  gap: 0.5rem;
+  padding: 1.5rem;
+  justify-items: center;
+  align-items: center;
+  border: 2px solid var(--accent-color);
+  grid-template-areas:
+    "location location location"
+    "icon icon icon"
+    "conditions conditions conditions"
+    "temperature temperature temperature"
+    "precipitation uv windspeed"
+    "sunrise sunset .";
+  display: none;
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  color: var(--font-color);
+  background-color: var(--secondary-background-color);
 }
 
 form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
 }
 
-form input, form button {
-    font-family: inherit;
-    appearance: none;
-    font-size: 100%;
-    padding: 0.5rem 1rem;
+form input,
+form button {
+  font-family: inherit;
+  appearance: none;
+  font-size: 100%;
+  padding: 0.5rem 1rem;
 }
 
 form input {
-    border: 1px solid white;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-    min-width: 100px;
+  border: 1px solid white;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  min-width: 100px;
 }
 
 form button {
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-    border: none;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border: none;
 }
 
 button {
-    margin: 0 auto;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    background-color: var(--accent-color);
-    color: var(--font-color);
+  margin: 0 auto;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  background-color: var(--accent-color);
+  color: var(--font-color);
 }
 
-button:hover{
-    background-color: #51b34cc3;
-    cursor: pointer;
+button:hover {
+  background-color: #51b34cc3;
+  cursor: pointer;
 }
 
 #weather-info.active {
-    display: grid;
+  display: grid;
 }
 
 #weather-info div {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .conditions {
-    grid-area: conditions;
+  grid-area: conditions;
 }
 
 .precipitation {
-    grid-area: precipitation;
-    position: relative;
+  grid-area: precipitation;
+  position: relative;
 }
 
-.precipitation::before, .windspeed::before, .sunrise::before, .sunset::before, .uv::before {
-    position: absolute;
-    content: "";
-    background-size: contain; /* Ensures the image fits the container */
-    background-repeat: no-repeat; /* Prevents tiling */
-    width: 20px; /* Adjust width */
-    height: 20px; /* Adjust height */
-    left: -30px;
+.precipitation::before,
+.windspeed::before,
+.sunrise::before,
+.sunset::before,
+.uv::before {
+  position: absolute;
+  content: "";
+  background-size: contain; /* Ensures the image fits the container */
+  background-repeat: no-repeat; /* Prevents tiling */
+  width: 20px; /* Adjust width */
+  height: 20px; /* Adjust height */
+  left: -30px;
 }
 
 .precipitation::before {
-    background-image: url(./icons/rain-prob.png);
+  background-image: url(./icons/rain-prob.png);
 }
 
 .windspeed::before {
-    background-image: url(./icons/wind.png);
+  background-image: url(./icons/wind.png);
 }
 
 .location {
-    grid-area: location;
-    font-weight: 500;
+  grid-area: location;
+  font-weight: 500;
 }
 
 .icon {
-    grid-area: icon;
+  grid-area: icon;
 }
 
 .temperature {
-    grid-area: temperature;
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--accent-color);
-    position: relative;
+  grid-area: temperature;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  position: relative;
 }
 
 .temperature::after {
-    position: absolute;
-    content: "";
-    right: -45px;
+  position: absolute;
+  content: "";
+  right: -45px;
 }
 
 .windspeed {
-    grid-area: windspeed;
-    position: relative;
+  grid-area: windspeed;
+  position: relative;
 }
 
 .windspeed::before {
-    background-image: url(./icons/wind.png);
+  background-image: url(./icons/wind.png);
 }
 
 .sunrise {
-    grid-area: sunrise;
-    grid-column: 1 / 3;
+  grid-area: sunrise;
+  grid-column: 1 / 3;
 }
 
 .sunset {
-    grid-area: sunset;
-    grid-column: 2 / 4;
+  grid-area: sunset;
+  grid-column: 2 / 4;
 }
 
-.sunrise, .sunset {
-    position: relative;
+.sunrise,
+.sunset {
+  position: relative;
 }
 
 .sunrise::before {
-    background-image: url(./icons/sunrise.png);
+  background-image: url(./icons/sunrise.png);
 }
 
 .sunset::before {
-    background-image: url(./icons/sunset.png);
+  background-image: url(./icons/sunset.png);
 }
 
 .uv {
-    grid-area: uv;
-    position: relative;
+  grid-area: uv;
+  position: relative;
 }
 
 .uv::before {
-    background-image: url(./icons/uv.png);
+  background-image: url(./icons/uv.png);
 }
 
 .unit-toggle {
-    display: flex;
-    border-radius: 0.25rem;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 20%;
+  display: flex;
+  border-radius: 0.25rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 20%;
 }
 
 .unit-toggle:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .unit-toggle div {
-    border-radius: 0.25rem;
-    background-color: white;
-    padding: 0.25rem 0.5rem;
-    display: flex;
-    justify-content: center;
-    transition-duration: 0.5s;
+  border-radius: 0.25rem;
+  background-color: white;
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  justify-content: center;
+  transition-duration: 0.5s;
 }
 
-.unit-toggle div:not(.active):hover{
-    background-color: rgba(255, 255, 255, 0.914);
+.unit-toggle div:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.914);
 }
 
 .unit-toggle .active {
-    background-color: var(--accent-color);
-    transition-duration: 0.5s;
-    color: var(--font-color);
+  background-color: var(--accent-color);
+  transition-duration: 0.5s;
+  color: var(--font-color);
 }
 
 .spinner {
-    position: absolute;
-    top: 50%;
-    bottom: 50%;
-    border-radius: 50%;
-    border: 10px solid white;
-    border-top: 10px solid var(--accent-color);
-    width: 60px;
-    height: 60px;
-    animation: spin 2s linear infinite;
-    display: none;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  border-radius: 50%;
+  border: 10px solid white;
+  border-top: 10px solid var(--accent-color);
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  display: none;
 }
 
 .spinner.active {
-    display: block;
+  display: block;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}

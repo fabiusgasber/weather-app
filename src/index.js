@@ -5,7 +5,7 @@ import { weatherservice } from "./weatherservice";
 
 const init = () => {
   userInterface.setEventListeners(fetchWeather);
-}
+};
 
 const fetchWeather = () => {
   userInterface.showLoader();
@@ -22,7 +22,7 @@ const fetchWeather = () => {
       userInterface.showError();
     })
     .finally(() => {
-      userInterface.hideLoader()
+      userInterface.hideLoader();
     });
 };
 
