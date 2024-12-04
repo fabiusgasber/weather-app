@@ -1,3 +1,12 @@
+:root {
+    --main-color: #1081B9;
+    --accent-color: #10B981;
+    --background-color: #1F2937;
+    --secondary-background-color: #2D3748;
+    --box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    --font-color: white;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -5,7 +14,7 @@ body {
     gap: 2rem;
     font-family: outfit;
     font-weight: 300;
-    background-color: #1F2937;
+    background-color: var(--background-color);
     line-height: 1.5;
     padding: 1rem 2rem;
 }
@@ -61,10 +70,10 @@ h1, p {
                          "precipitation uv windspeed"
                          "sunrise sunset .";
     display: none;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--box-shadow);
     border-radius: 0.5rem;
-    color: white;
-    background-color: #2D3748;
+    color: var(--font-color);
+    background-color: var(--secondary-background-color);
 }
 
 form {
@@ -95,8 +104,8 @@ button {
     width: 60%;
     margin: 0 auto;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    background-color: #10B981;
-    color: white;
+    background-color: var(--accent-color);
+    color: var(--font-color);
 }
 
 button:hover{
@@ -152,7 +161,7 @@ button:hover{
     grid-area: temperature;
     font-size: 2rem;
     font-weight: 500;
-    color: #10B981;
+    color: var(--accent-color);
     position: relative;
 }
 
@@ -223,9 +232,9 @@ button:hover{
 }
 
 .unit-toggle .active {
-    background-color: #10B981;
+    background-color: var(--accent-color);
     transition-duration: 0.5s;
-    color: white;
+    color: var(--font-color);
 }
 
 .spinner {
@@ -234,7 +243,7 @@ button:hover{
     bottom: 50%;
     border-radius: 50%;
     border: 10px solid white;
-    border-top: 10px solid #10B981;
+    border-top: 10px solid var(--accent-color);
     width: 60px;
     height: 60px;
     animation: spin 2s linear infinite;
