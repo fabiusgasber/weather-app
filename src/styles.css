@@ -236,9 +236,6 @@ button:hover{
     display: flex;
     justify-content: center;
     transition-duration: 0.5s;
-    flex-basis: 3rem;
-    flex-shrink: 1;
-    flex-grow: 1;
 }
 
 .unit-toggle div:not(.active):hover{
