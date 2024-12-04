@@ -39,6 +39,11 @@ export const userInterface = (() => {
               icon.setAttribute("src", require(`./icons/weather-icon/${data[info]}.png`));
               subdiv.append(icon);
             }
+            else if(info === "sunrise" || info === "sunset"){
+              const subtext = document.createElement("p");
+              subtext.append(document.createTextNode(data[info].slice(0, data[info].lastIndexOf(':'))));
+              subdiv.append(subtext);
+            }
             else {
               const subtext = document.createElement("p");
               subtext.append(document.createTextNode(unitClass.formatUnit(info, data[info])));
