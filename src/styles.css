@@ -109,6 +109,7 @@ button {
 
 button:hover{
     background-color: #51b34cc3;
+    cursor: pointer;
 }
 
 #weather-info.active {
@@ -228,6 +229,11 @@ button:hover{
     display: flex;
     justify-content: center;
     flex-grow: 1;
+    transition-duration: 0.5s;
+}
+
+.unit-toggle div:not(.active):hover{
+    background-color: rgba(255, 255, 255, 0.914);
 }
 
 .unit-toggle .active {
