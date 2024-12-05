@@ -1,5 +1,3 @@
-## Running Version
-
 You can view the live version of the project by clicking this link: [Weather App](https://fabiusgasber.github.io/weather-app/)
 
 # Weather App
