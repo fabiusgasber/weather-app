@@ -22,7 +22,7 @@ export const userInterface = (() => {
     getActive(Array.from(unitToggle.children))?.getAttribute("id");
 
   const switchSystem = (e) => {
-    if (!e || !e.target || !e.target.parentElement) return;
+    if (!e || !e.target || !e.target.parentElement || e.target.classList.contains("unit-toggle")) return;
     const parent = e.target.parentElement;
     Array.from(parent.children).forEach((child) =>
       child.classList.remove("active"),
