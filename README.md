@@ -6,15 +6,11 @@ You can view the live version of the project by clicking this link: [Weather App
 
 This project is part of **The Odin Project's Advanced JavaScript Curriculum**. It is a web application designed to display detailed weather information for the current day. Users can view data such as temperature, wind speed, sunrise, sunset, and several other weather indicators.
 
----
-
 ## Key Features
 
 - **Detailed Weather Information**: Provides a comprehensive overview of today’s weather, including temperature, wind speed, and more.  
 - **Interactive Interface**: Users can select their preferred measurement units for data presentation.  
 - **Real-Time Data**: Fetches accurate and up-to-date weather data from a public API.
-
----
 
 ## Project Goals
 
@@ -35,8 +31,6 @@ The primary objectives of this project were to write clean, maintainable, and re
 - Built responsive and visually appealing layouts using CSS Grid for structural alignment and Flexbox for precise content positioning.
 - Ensured cross-device compatibility by combining these techniques to adapt layouts to various screen sizes.
 - Enhanced the user interface with modern, clean, and organized designs that prioritize usability and readability.
-
----
 
 ## Learning Outcomes
 
