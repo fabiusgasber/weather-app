@@ -231,7 +231,7 @@ button:hover {
   gap: 0.5rem;
   flex-wrap: wrap;
   justify-content: center;
-  width: 20%;
+  width: clamp(100px, 20%, 15rem);
 }
 
 .unit-toggle:hover {
@@ -245,6 +245,7 @@ button:hover {
   display: flex;
   justify-content: center;
   transition-duration: 0.5s;
+  flex: 1;
 }
 
 .unit-toggle div:hover {
