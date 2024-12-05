@@ -41,9 +41,9 @@ export const userInterface = (() => {
   const getLocation = () => textInput.value;
   const showWeatherInfos = (data) => {
     weatherInfo.replaceChildren();
-    const unitClass = getUnit() === "metric" ? metricSystem : imperialSystem;
+    const unitSystem = getUnit() === "metric" ? metricSystem : imperialSystem;
     weatherInfo.classList.add("active");
-    createInfoDivs(data, unitClass);
+    weatherInfo.append(...createInfoDivs(data, unitSystem));
   };
   
   const showError = () => {
@@ -58,35 +58,17 @@ export const userInterface = (() => {
     weatherInfo.replaceChildren();
   };
 
-  const createInfoDivs = (data, unitClass) => {
+  const createInfoDivs = (data, unitSystem) => {
+    const elements = [];
     for (const info in data) {
-    const subdiv = document.createElement("div");
-    subdiv.classList.add(info);
-    if (info === "icon") {
-      const icon = document.createElement("img");
-      icon.setAttribute(
-        "src",
-        require(`./icons/weather-icon/${data[info]}.png`),
-      );
-      subdiv.append(icon);
-    } else if (info === "sunrise" || info === "sunset") {
-      const subtext = document.createElement("p");
-      subtext.append(
-        document.createTextNode(
-          data[info].slice(0, data[info].lastIndexOf(":")), // remove seconds from time
-        ),
-      );
-      subdiv.append(subtext);
-    } else {
-      const subtext = document.createElement("p");
-      subtext.append(
-        document.createTextNode(unitClass.formatUnit(info, data[info])),
-      );
-      subdiv.append(subtext);
+      const subdiv = document.createElement("div");
+      subdiv.classList.add(info);
+      const element = data[info].getElement({info, unitSystem});
+      subdiv.append(element);
+      elements.push(subdiv);
     }
-    weatherInfo.append(subdiv);
+    return elements;
   }
-}
 
   return {
     setEventListeners,
