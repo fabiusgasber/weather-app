@@ -1,3 +1,7 @@
+## Running Version
+
+You can view the live version of the project by clicking this link: [Weather App](https://fabiusgasber.github.io/weather-app/)
+
 # Weather App
 
 This project is part of **The Odin Project's Advanced JavaScript Curriculum**. It is a web application designed to display detailed weather information for the current day. Users can view data such as temperature, wind speed, sunrise, sunset, and several other weather indicators.
@@ -26,6 +30,11 @@ The primary objectives of this project were to write clean, maintainable, and re
 - **Liskov Substitution**: Followed modular design practices for flexible component interchangeability.
 - **Interface Segregation**: Avoided unnecessary dependencies or tightly coupled components.
 - **Dependency Inversion**: Abstracted dependencies to allow for easier testing and code evolution.
+
+### **CSS Layout with Grid and Flexbox**
+- Built responsive and visually appealing layouts using CSS Grid for structural alignment and Flexbox for precise content positioning.
+- Ensured cross-device compatibility by combining these techniques to adapt layouts to various screen sizes.
+- Enhanced the user interface with modern, clean, and organized designs that prioritize usability and readability.
 
 ---
 
