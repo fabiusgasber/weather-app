@@ -109,16 +109,9 @@ form button {
 
 button {
   margin: 0 auto;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease;
+  transition-duration: 0.5s;
   background-color: var(--accent-color);
   color: var(--font-color);
-}
-
-button:hover {
-  background-color: #51b34cc3;
-  cursor: pointer;
 }
 
 #weather-info.active {
@@ -234,7 +227,7 @@ button:hover {
   width: clamp(100px, 20%, 15rem);
 }
 
-.unit-toggle:hover {
+.unit-toggle:hover, button:hover {
   cursor: pointer;
 }
 
@@ -248,7 +241,7 @@ button:hover {
   flex: 1;
 }
 
-.unit-toggle div:hover {
+.unit-toggle div:hover, button:hover {
   opacity: 0.9;
 }
 
