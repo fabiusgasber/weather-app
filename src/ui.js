@@ -10,6 +10,12 @@ export const userInterface = (() => {
   const setEventListeners = (fn) => {
     searchBtn.addEventListener("click", fn);
     unitToggle.addEventListener("click", switchSystem);
+    textInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        searchBtn.click();
+      }
+    });
   };
 
   const getUnit = () =>
