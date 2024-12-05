@@ -10,6 +10,7 @@ export const userInterface = (() => {
   const setEventListeners = (fn) => {
     searchBtn.addEventListener("click", fn);
     unitToggle.addEventListener("click", switchSystem);
+    unitToggle.addEventListener("click", changeUnitSystem);
     textInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
@@ -20,6 +21,10 @@ export const userInterface = (() => {
 
   const getUnit = () =>
     getActive(Array.from(unitToggle.children))?.getAttribute("id");
+
+  const changeUnitSystem = () => {
+    if(weatherInfo.classList.contains("active")) searchBtn.click();
+  }
 
   const switchSystem = (e) => {
     if (!e || !e.target || !e.target.parentElement || e.target.classList.contains("unit-toggle")) return;
