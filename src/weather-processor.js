@@ -34,13 +34,9 @@ class Icon {
   getElement() {
     try {
       const icon = document.createElement("img");
-      icon.setAttribute(
-        "src",
-        require(`${Icon.basePath}${this.iconName}.png`),
-      );
-      return icon;  
-    }
-    catch (error){
+      icon.setAttribute("src", require(`${Icon.basePath}${this.iconName}.png`));
+      return icon;
+    } catch (error) {
       console.error(new Error(error.message));
     }
   }
@@ -87,4 +83,3 @@ class UnitInfo {
     return subtext;
   }
 }
-

@@ -227,7 +227,8 @@ button {
   width: clamp(100px, 20%, 15rem);
 }
 
-.unit-toggle:hover, button:hover {
+.unit-toggle:hover,
+button:hover {
   cursor: pointer;
 }
 
@@ -241,7 +242,8 @@ button {
   flex: 1;
 }
 
-.unit-toggle div:hover, button:hover {
+.unit-toggle div:hover,
+button:hover {
   opacity: 0.9;
 }
 

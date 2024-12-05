@@ -10,22 +10,32 @@ export const userInterface = (() => {
   const setEventListeners = (fn) => {
     searchBtn.addEventListener("click", fn);
     unitToggle.addEventListener("click", switchSystem);
-    unitToggle.addEventListener("click", (e) => clickSearchBtn(e, weatherInfo.classList.contains("active")));
-    textInput.addEventListener("keypress", (e) => clickSearchBtn(e, e.key === "Enter"));
+    unitToggle.addEventListener("click", (e) =>
+      clickSearchBtn(e, weatherInfo.classList.contains("active")),
+    );
+    textInput.addEventListener("keypress", (e) =>
+      clickSearchBtn(e, e.key === "Enter"),
+    );
   };
 
   const getUnit = () =>
     getActive(Array.from(unitToggle.children))?.getAttribute("id");
 
   const clickSearchBtn = (e, condition) => {
-    if(condition) {
+    if (condition) {
       e.preventDefault();
       searchBtn.click();
     }
-  }
+  };
 
   const switchSystem = (e) => {
-    if (!e || !e.target || !e.target.parentElement || e.target.classList.contains("unit-toggle")) return;
+    if (
+      !e ||
+      !e.target ||
+      !e.target.parentElement ||
+      e.target.classList.contains("unit-toggle")
+    )
+      return;
     const parent = e.target.parentElement;
     Array.from(parent.children).forEach((child) =>
       child.classList.remove("active"),
@@ -45,7 +55,7 @@ export const userInterface = (() => {
     weatherInfo.classList.add("active");
     weatherInfo.append(...createInfoDivs(data, unitSystem));
   };
-  
+
   const showError = () => {
     weatherInfo.replaceChildren();
     weatherInfo.classList.add("active");
@@ -63,12 +73,12 @@ export const userInterface = (() => {
     for (const info in data) {
       const subdiv = document.createElement("div");
       subdiv.classList.add(info);
-      const element = data[info].getElement({info, unitSystem});
+      const element = data[info].getElement({ info, unitSystem });
       subdiv.append(element);
       elements.push(subdiv);
     }
     return elements;
-  }
+  };
 
   return {
     setEventListeners,
