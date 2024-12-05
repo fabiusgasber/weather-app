@@ -43,34 +43,9 @@ export const userInterface = (() => {
     weatherInfo.replaceChildren();
     const unitClass = getUnit() === "metric" ? metricSystem : imperialSystem;
     weatherInfo.classList.add("active");
-    for (const info in data) {
-      const subdiv = document.createElement("div");
-      subdiv.classList.add(info);
-      if (info === "icon") {
-        const icon = document.createElement("img");
-        icon.setAttribute(
-          "src",
-          require(`./icons/weather-icon/${data[info]}.png`),
-        );
-        subdiv.append(icon);
-      } else if (info === "sunrise" || info === "sunset") {
-        const subtext = document.createElement("p");
-        subtext.append(
-          document.createTextNode(
-            data[info].slice(0, data[info].lastIndexOf(":")), // remove seconds from time
-          ),
-        );
-        subdiv.append(subtext);
-      } else {
-        const subtext = document.createElement("p");
-        subtext.append(
-          document.createTextNode(unitClass.formatUnit(info, data[info])),
-        );
-        subdiv.append(subtext);
-      }
-      weatherInfo.append(subdiv);
-    }
+    createInfoDivs(data, unitClass);
   };
+  
   const showError = () => {
     weatherInfo.replaceChildren();
     weatherInfo.classList.add("active");
@@ -82,6 +57,36 @@ export const userInterface = (() => {
     loader.classList.add("active");
     weatherInfo.replaceChildren();
   };
+
+  const createInfoDivs = (data, unitClass) => {
+    for (const info in data) {
+    const subdiv = document.createElement("div");
+    subdiv.classList.add(info);
+    if (info === "icon") {
+      const icon = document.createElement("img");
+      icon.setAttribute(
+        "src",
+        require(`./icons/weather-icon/${data[info]}.png`),
+      );
+      subdiv.append(icon);
+    } else if (info === "sunrise" || info === "sunset") {
+      const subtext = document.createElement("p");
+      subtext.append(
+        document.createTextNode(
+          data[info].slice(0, data[info].lastIndexOf(":")), // remove seconds from time
+        ),
+      );
+      subdiv.append(subtext);
+    } else {
+      const subtext = document.createElement("p");
+      subtext.append(
+        document.createTextNode(unitClass.formatUnit(info, data[info])),
+      );
+      subdiv.append(subtext);
+    }
+    weatherInfo.append(subdiv);
+  }
+}
 
   return {
     setEventListeners,
